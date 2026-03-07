@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+
+  /* Màu theo yêu cầu */
+  --color-bg: #0d0520;
+  --color-card: #1b0f2f;
+  --color-gold: #d4af37;
+  --color-gold-light: #f1d592;
+  --color-text: #ffffff;
+  --color-text-muted: rgba(255, 255, 255, 0.7);
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Inter", sans-serif;
+    background-color: #0d0520;
+    color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Playfair Display", serif;
+    letter-spacing: 0.02em;
+  }
+
+  select {
+    cursor: pointer;
+  }
+
+  select option {
+    background-color: #1b0f2f;
+    color: #ffffff;
+  }
+}
+
+/* Container chuẩn - căn giữa, max 1400px, padding 24px */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Hero section - không transform rotate */
+.hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Grid thẻ bài - card rộng hơn, ít cột: Desktop 4, Tablet 3, Mobile 1-2 */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+@media (min-width: 640px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .card-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+}
+
+/* Section spacing */
+.section-spacing {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* Gallery: header đã gọn nên giảm khoảng cách xuống thanh search */
+.gallery-content.section-spacing {
+  padding-top: 40px;
+}
+
+/* Shimmer vàng cho tiêu đề */
+.gold-text-shimmer {
+  background: linear-gradient(to right, #d4af37 20%, #f1d592 40%, #f1d592 60%, #d4af37 80%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Hiệu ứng hạt bụi / ánh sáng nhẹ hero */
+.hero-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 70% 50% at 50% 30%, rgba(212, 175, 55, 0.04) 0%, transparent 50%),
+              radial-gradient(ellipse 50% 40% at 80% 70%, rgba(45, 27, 78, 0.3) 0%, transparent 50%);
+}
+
+/* Header (chi tiết trong Navbar.css) */
+header.navbar-header {
+  background-color: #0d0520;
+}
+
+/* Hero: chữ trắng/vàng luôn đọc được */
+.hero .container {
+  color: #ffffff;
+}
+
+.hero h1 {
+  color: #ffffff;
+}
+
+.hero a[href] {
+  color: #0d0520;
+  background-color: #d4af37;
+}
+
+.hero a[href*="about"] {
+  color: #d4af37;
+  background-color: transparent;
+  border: 2px solid rgba(212, 175, 55, 0.6);
+}
+
+/* Menu desktop/mobile điều khiển bởi Navbar.css */

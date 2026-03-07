@@ -1,0 +1,191 @@
+/* ========== THANH TÌM KIẾM GALLERY - Phong cách thư viện / phòng trưng bày ========== */
+
+.gallery-search {
+  position: sticky;
+  top: 4.25rem;
+  z-index: 40;
+  margin-bottom: 2.5rem;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(145deg, #1a0f2a 0%, #120a1c 100%);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 16px;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+@media (min-width: 768px) {
+  .gallery-search {
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 2.75rem;
+  }
+}
+
+/* Hàng chính: search + bộ lọc (desktop một dòng) */
+.gallery-search__row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 900px) {
+  .gallery-search__row {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 1rem;
+  }
+}
+
+/* Ô tìm kiếm - chiếm phần lớn chiều ngang */
+.gallery-search__input-wrap {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+.gallery-search__icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.25rem;
+  height: 1.25rem;
+  color: rgba(212, 175, 55, 0.7);
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+
+.gallery-search__input-wrap:focus-within .gallery-search__icon {
+  color: #d4af37;
+}
+
+.gallery-search__input {
+  width: 100%;
+  height: 3rem;
+  padding: 0 1rem 0 2.75rem;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  color: #fff;
+  background: rgba(13, 5, 32, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-search__input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  font-style: italic;
+}
+
+.gallery-search__input:hover {
+  border-color: rgba(212, 175, 55, 0.45);
+}
+
+.gallery-search__input:focus {
+  border-color: #d4af37;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+}
+
+/* Nhóm bộ lọc - select + nút xóa */
+.gallery-search__filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+@media (min-width: 900px) {
+  .gallery-search__filters {
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+  }
+}
+
+.gallery-search__select {
+  height: 3rem;
+  padding: 0 2rem 0 0.875rem;
+  font-size: 0.8125rem;
+  font-family: inherit;
+  color: #fff;
+  background: rgba(13, 5, 32, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  min-width: 0;
+}
+
+.gallery-search__select:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+.gallery-search__select:focus {
+  border-color: #d4af37;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.12);
+}
+
+.gallery-search__select option {
+  background: #1a0f2a;
+  color: #fff;
+}
+
+/* Select theo nhóm - có label ngắn (cho mobile gọn) */
+.gallery-search__filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.gallery-search__filter-group label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+}
+
+@media (min-width: 900px) {
+  .gallery-search__filter-group label {
+    display: none;
+  }
+}
+
+.gallery-search__select--period {
+  min-width: 140px;
+}
+
+.gallery-search__select--school {
+  min-width: 160px;
+}
+
+/* Nút xóa lọc */
+.gallery-search__clear {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8125rem;
+  font-family: inherit;
+  color: #d4af37;
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.gallery-search__clear:hover {
+  color: #f1d592;
+  border-color: rgba(212, 175, 55, 0.6);
+  background: rgba(212, 175, 55, 0.08);
+}
+
+.gallery-search__clear svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}

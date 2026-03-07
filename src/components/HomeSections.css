@@ -1,0 +1,147 @@
+/* ========== TRANG CHỦ - Thêm section: Thời đại + Trích dẫn nổi bật ========== */
+
+/* ----- Khám phá theo thời đại ----- */
+.home-eras {
+  background: linear-gradient(180deg, #0d0614 0%, #0a0510 100%);
+  padding: 72px 24px 80px;
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.home-eras__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home-eras__label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: #d4af37;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.home-eras__title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e8d48b;
+  text-align: center;
+  margin: 0 0 2rem;
+  letter-spacing: 0.04em;
+}
+
+.home-eras__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.home-eras__link {
+  display: inline-block;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(26, 15, 42, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.home-eras__link:hover {
+  color: #d4af37;
+  border-color: rgba(212, 175, 55, 0.5);
+  background: rgba(26, 15, 42, 0.9);
+}
+
+/* ----- Trích dẫn nổi bật ----- */
+.home-quotes {
+  padding: 72px 24px 88px;
+  background: #0a0612;
+  border-top: 1px solid rgba(212, 175, 55, 0.08);
+}
+
+.home-quotes__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home-quotes__label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: #d4af37;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.home-quotes__title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e8d48b;
+  text-align: center;
+  margin: 0 0 2rem;
+  letter-spacing: 0.04em;
+}
+
+.home-quotes__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .home-quotes__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .home-quotes__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.home-quote-card {
+  padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+  background: rgba(26, 15, 42, 0.4);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.home-quote-card:hover {
+  border-color: rgba(212, 175, 55, 0.35);
+  background: rgba(26, 15, 42, 0.7);
+  transform: translateY(-2px);
+}
+
+.home-quote-card__text {
+  font-family: "Playfair Display", serif;
+  font-size: 0.9375rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.55;
+  margin: 0 0 0.75rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.home-quote-card__author {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #d4af37;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}

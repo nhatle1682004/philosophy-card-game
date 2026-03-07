@@ -1,0 +1,242 @@
+/* ========== TRANG CHI TIẾT THẺ BÀI TRIẾT HỌC ========== */
+/* Phong cách cổ điển, huyền bí, sang trọng — thư viện tri thức cổ */
+
+.philosopher-detail-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0f0818 0%, #0d0614 25%, #0a0510 60%, #080410 100%);
+  position: relative;
+}
+
+.philosopher-detail-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 50% at 20% 30%, rgba(75, 45, 120, 0.12) 0%, transparent 50%),
+              radial-gradient(ellipse 60% 40% at 80% 70%, rgba(45, 25, 70, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.philosopher-detail-page .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Liên kết quay lại bộ sưu tập */
+.philosopher-detail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0;
+  margin-bottom: 1.25rem;
+  font-size: 0.75rem;
+  font-family: inherit;
+  color: rgba(255, 255, 255, 0.65);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.philosopher-detail-back:hover {
+  color: #d4af37;
+}
+
+.philosopher-detail-back:hover .philosopher-detail-back-icon {
+  transform: translateX(-3px);
+}
+
+.philosopher-detail-back-icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+/* Hai cột: thẻ bài trái, thông tin phải */
+.philosopher-detail-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+  padding-bottom: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .philosopher-detail-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 3rem;
+    align-items: start;
+  }
+}
+
+.philosopher-detail-card-col {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .philosopher-detail-card-col {
+    justify-content: flex-end;
+  }
+}
+
+/* Cột phải: thông tin chi tiết */
+.philosopher-detail-info {
+  max-width: 420px;
+}
+
+.philosopher-detail-name {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e8d48b;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .philosopher-detail-name {
+    font-size: 1.75rem;
+  }
+}
+
+.philosopher-detail-meta {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-style: italic;
+  margin: 0 0 1.25rem;
+  letter-spacing: 0.02em;
+}
+
+/* Khối nhãn: Khái niệm cốt lõi, Khu vực */
+.philosopher-detail-blocks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.philosopher-detail-block {
+  padding: 0.625rem 0.875rem;
+  background: rgba(26, 15, 42, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 8px;
+}
+
+.philosopher-detail-block-label {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.5625rem;
+  font-weight: 600;
+  color: #d4af37;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+
+.philosopher-detail-block-label svg {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+}
+
+.philosopher-detail-block-value {
+  font-family: "Playfair Display", serif;
+  font-size: 0.8125rem;
+  color: #fff;
+  line-height: 1.35;
+}
+
+/* Khung trích dẫn — nền tối, dấu ngoặc kép */
+.philosopher-detail-quote-wrap {
+  position: relative;
+  padding: 1.25rem 1.25rem 1.25rem 1.75rem;
+  background: linear-gradient(145deg, #120a1a 0%, #0d0612 100%);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 10px;
+  margin-bottom: 1.25rem;
+}
+
+.philosopher-detail-quote-mark {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: rgba(212, 175, 55, 0.18);
+  line-height: 1;
+  user-select: none;
+}
+
+.philosopher-detail-quote-text {
+  position: relative;
+  z-index: 1;
+  font-family: "Playfair Display", serif;
+  font-size: 0.9375rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.55;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .philosopher-detail-quote-text {
+    font-size: 1rem;
+  }
+}
+
+/* Tiểu sử và truyền thuyết */
+.philosopher-detail-bio-title {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.5625rem;
+  font-weight: 600;
+  color: rgba(212, 175, 55, 0.85);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.5rem;
+}
+
+.philosopher-detail-bio-title svg {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+}
+
+.philosopher-detail-bio-text {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* 404 */
+.philosopher-detail-notfound {
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.philosopher-detail-notfound h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #d4af37;
+  margin-bottom: 1rem;
+}
+
+.philosopher-detail-notfound a {
+  color: #d4af37;
+  text-decoration: none;
+  font-size: 0.9375rem;
+}
+
+.philosopher-detail-notfound a:hover {
+  text-decoration: underline;
+}

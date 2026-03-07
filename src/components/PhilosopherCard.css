@@ -1,0 +1,369 @@
+/* ========== THẺ BÀI TRIẾT HỌC - Layout mẫu, căn giữa, đối xứng ========== */
+
+@keyframes card-float-hover {
+  0%, 100% { transform: translateY(-10px); }
+  50% { transform: translateY(-16px); }
+}
+
+.philosopher-card {
+  padding: 4px;
+  background: #0d0612;
+  border: 3px solid #e8c547;
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 380px;
+  max-height: 420px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.35s ease-out, border-color 0.3s ease-out;
+}
+
+.philosopher-card:hover {
+  animation: card-float-hover 2.2s ease-in-out infinite;
+  box-shadow:
+    0 20px 48px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(212, 175, 55, 0.15),
+    0 0 40px rgba(212, 175, 55, 0.25);
+  border-color: #f1d592;
+}
+
+.philosopher-card:hover .philosopher-card__inner {
+  border-color: rgba(241, 213, 146, 0.7);
+  transition: border-color 0.3s ease-out;
+}
+
+.philosopher-card__inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 0;
+  overflow: hidden;
+  background: linear-gradient(180deg, #1a0f2a 0%, #120a1a 45%, #0d0612 100%);
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  border-radius: 12px;
+  padding: 0;
+  position: relative;
+  transition: border-color 0.3s ease-out;
+  text-align: center;
+}
+
+/* 1. Tên triết gia - căn giữa */
+.philosopher-card__name {
+  font-family: "Playfair Display", serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #e8d48b;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 10px 10px 6px;
+  line-height: 1.2;
+  width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 2. Thanh niên đại - thanh ngang mảnh, căn giữa card */
+.philosopher-card__meta {
+  display: block;
+  width: calc(100% - 20px);
+  max-width: 100%;
+  margin: 0 10px 8px;
+  padding: 3px 8px;
+  font-size: 0.54rem;
+  font-weight: 500;
+  color: #d4af37;
+  letter-spacing: 0.06em;
+  line-height: 1.35;
+  background: #120c1a;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 2px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 3. Ảnh tròn - chính giữa card, nhỏ hơn để card ngắn */
+.philosopher-card__portrait-wrap {
+  flex-shrink: 0;
+  padding: 0 12px 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.philosopher-card__portrait {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #d4af37;
+  background: #0a0612;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(212, 175, 55, 0.2);
+}
+
+.philosopher-card__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.02) saturate(0.96);
+  transition: transform 0.35s ease-out;
+}
+
+.philosopher-card:hover .philosopher-card__portrait img {
+  transform: scale(1.04);
+}
+
+/* 4. Tag KỸ NĂNG - badge nhỏ ngay dưới ảnh */
+.philosopher-card__label-wrap {
+  flex-shrink: 0;
+  padding: 0 10px 4px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.philosopher-card__label {
+  display: inline-block;
+  font-size: 0.5rem;
+  font-weight: 600;
+  color: #d4af37;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  background: #120c1a;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: 2px;
+}
+
+/* 5. Tiêu đề kỹ năng - in hoa, serif, vàng, căn giữa */
+.philosopher-card__concept {
+  font-family: "Playfair Display", serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #e8d48b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0 10px 6px;
+  line-height: 1.25;
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 6. Mô tả - căn giữa, 2 dòng, nội dung ở trên, sát Chiêm nghiệm */
+.philosopher-card__desc {
+  flex: 0 1 auto;
+  width: 100%;
+  padding: 0 10px 2px;
+  box-sizing: border-box;
+}
+
+.philosopher-card__desc-inner {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 7. CHIÊM NGHIỆM - badge giữa hai gạch vàng, sát mô tả phía trên */
+.philosopher-card__contemplate-label-wrap {
+  flex-shrink: 0;
+  padding: 0 12px 6px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.philosopher-card__contemplate-line {
+  flex: 1;
+  height: 1px;
+  min-width: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.9) 15%, #d4af37 50%, rgba(212, 175, 55, 0.9) 85%, transparent 100%);
+  box-shadow: 0 0 6px rgba(212, 175, 55, 0.25);
+}
+
+.philosopher-card__contemplate-label {
+  display: inline-block;
+  font-family: "Playfair Display", serif;
+  font-size: 0.5rem;
+  font-weight: 600;
+  color: #e8d48b;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  background: linear-gradient(180deg, #1e1228 0%, #160d1e 100%);
+  border: 1px solid rgba(212, 175, 55, 0.65);
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* 8. Câu trích dẫn - nghiêng, màu sáng, căn giữa, giới hạn dòng */
+.philosopher-card__quote {
+  margin: 0 10px 12px;
+  padding: 0 8px;
+  font-family: "Playfair Display", serif;
+  font-size: 0.625rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ---- Biến thể thẻ lớn (trang chi tiết): nhỏ gọn, viền vàng đôi ---- */
+.philosopher-card.is-large {
+  min-height: 460px;
+  max-width: 300px;
+  padding: 5px;
+  border: 2px solid #d4af37;
+  box-shadow: inset 0 0 0 2px rgba(212, 175, 55, 0.5);
+}
+.philosopher-card.is-large:hover {
+  animation: none;
+  transform: none;
+}
+
+.philosopher-card.is-large .philosopher-card__inner {
+  border-radius: 10px;
+}
+
+.philosopher-card.is-large .philosopher-card__name {
+  font-size: 0.8rem;
+  padding: 10px 10px 6px;
+  letter-spacing: 0.08em;
+}
+
+.philosopher-card.is-large .philosopher-card__meta {
+  width: calc(100% - 20px);
+  margin: 0 10px 8px;
+  font-size: 0.5rem;
+  padding: 3px 8px;
+}
+
+.philosopher-card.is-large .philosopher-card__portrait-wrap {
+  padding: 0 12px 6px;
+}
+
+.philosopher-card.is-large .philosopher-card__portrait {
+  width: 140px;
+  height: 140px;
+  border-width: 2px;
+}
+
+.philosopher-card.is-large .philosopher-card__label-wrap,
+.philosopher-card.is-large .philosopher-card__contemplate-label-wrap {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.philosopher-card.is-large .philosopher-card__label-wrap {
+  padding-bottom: 6px;
+}
+
+.philosopher-card.is-large .philosopher-card__label {
+  font-size: 0.45rem;
+  padding: 2px 6px;
+}
+
+.philosopher-card.is-large .philosopher-card__contemplate-label {
+  font-size: 0.45rem;
+  padding: 3px 8px;
+}
+
+.philosopher-card.is-large .philosopher-card__concept {
+  font-size: 0.65rem;
+  padding: 0 10px 6px;
+}
+
+.philosopher-card.is-large .philosopher-card__desc {
+  padding: 0 10px 2px;
+}
+
+.philosopher-card.is-large .philosopher-card__desc-inner {
+  font-size: 0.6rem;
+  -webkit-line-clamp: 3;
+}
+
+.philosopher-card.is-large .philosopher-card__contemplate-label-wrap {
+  padding-bottom: 6px;
+}
+
+.philosopher-card.is-large .philosopher-card__quote {
+  margin: 0 10px 10px;
+  padding: 0 8px;
+  font-size: 0.5625rem;
+  -webkit-line-clamp: 2;
+}
+
+/* 9. Thời đại / Khu vực / Trường phái — bên trong card (chỉ is-large) */
+.philosopher-card__footer-meta {
+  width: calc(100% - 20px);
+  margin: 0 10px 12px;
+  padding: 8px 10px;
+  background: rgba(12, 8, 20, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 6px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1rem;
+  align-items: start;
+  flex-shrink: 0;
+}
+
+.philosopher-card__footer-meta__col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.philosopher-card__footer-meta__col:first-child {
+  gap: 0.75rem;
+}
+
+.philosopher-card__footer-meta__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.philosopher-card__footer-meta__label {
+  font-size: 0.4375rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.philosopher-card__footer-meta__value {
+  font-size: 0.5rem;
+  font-weight: 600;
+  color: #d4af37;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
