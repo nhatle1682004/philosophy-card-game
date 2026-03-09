@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Landmark, LayoutGrid, ScrollText, Menu, X } from 'lucide-react';
+import { Landmark, LayoutGrid, ScrollText, Compass, Menu, X } from 'lucide-react';
 import './Navbar.css';
 
 const GOLD = '#d4af37';
@@ -9,6 +9,7 @@ const GOLD = '#d4af37';
 const navItems = [
   { path: '/', label: 'Thánh Điện', icon: Landmark },
   { path: '/gallery', label: 'Bộ Bài', icon: LayoutGrid },
+  { path: '/kham-pha-triet-gia', label: 'Khám phá triết gia', icon: Compass },
   { path: '/about', label: 'Truyền Thuyết', icon: ScrollText },
 ];
 
@@ -33,7 +34,7 @@ export const Navbar: React.FC = () => {
           className="navbar-logo"
           onClick={() => setMobileOpen(false)}
         >
-          <div className="navbar-logo-icon">P</div>
+          <img src="/logo.png" alt="" className="navbar-logo-icon" />
           <span className="navbar-logo-text">Triết Học TCG</span>
         </Link>
 

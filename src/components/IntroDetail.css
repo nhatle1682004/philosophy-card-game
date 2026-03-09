@@ -2,7 +2,7 @@
 
 .intro-detail-page {
   min-height: 100vh;
-  background: linear-gradient(180deg, #0f0818 0%, #0d0614 25%, #0a0510 70%, #080410 100%);
+  background: #2a120c;
   position: relative;
 }
 
@@ -10,7 +10,9 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 70% 40% at 50% 0%, rgba(88, 52, 130, 0.12) 0%, transparent 50%);
+  background:
+    radial-gradient(ellipse 70% 40% at 50% 0%, rgba(245, 217, 160, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 35% at 80% 80%, rgba(245, 217, 160, 0.06) 0%, transparent 55%);
   pointer-events: none;
 }
 
@@ -31,7 +33,7 @@
   margin-bottom: 2rem;
   font-size: 0.8125rem;
   font-family: inherit;
-  color: rgba(255, 255, 255, 0.65);
+  color: #f7eedc;
   background: none;
   border: none;
   cursor: pointer;
@@ -42,7 +44,7 @@
 }
 
 .intro-detail-back:hover {
-  color: #d4af37;
+  color: #f5d9a0;
 }
 
 .intro-detail-back:hover .intro-detail-back-icon {
@@ -67,12 +69,12 @@
   height: 72px;
   margin: 0 auto 1.25rem;
   border-radius: 50%;
-  background: rgba(212, 175, 55, 0.12);
-  border: 1px solid rgba(212, 175, 55, 0.35);
+  background: rgba(201, 162, 39, 0.12);
+  border: 1px solid rgba(201, 162, 39, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #d4af37;
+  color: #c9a227;
 }
 
 .intro-detail-icon-wrap svg {
@@ -84,14 +86,14 @@
   font-family: "Playfair Display", serif;
   font-size: 1.75rem;
   font-weight: 700;
-  color: #e8d48b;
+  color: #c9a227;
   margin: 0 0 0.75rem;
   letter-spacing: 0.04em;
 }
 
 .intro-detail-lead {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.72);
+  color: #f7eedc;
   line-height: 1.6;
   margin: 0;
 }
@@ -99,12 +101,12 @@
 /* Nội dung bài viết */
 .intro-detail-content {
   padding: 2rem 0 0;
-  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  border-top: 1px solid rgba(245, 217, 160, 0.28);
 }
 
 .intro-detail-content p {
   font-size: 0.9375rem;
-  color: rgba(255, 255, 255, 0.82);
+  color: #f7eedc;
   line-height: 1.75;
   margin: 0 0 1.25rem;
 }
@@ -125,14 +127,14 @@
   padding: 0.75rem 1.5rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: #0d0520;
-  background: #d4af37;
+  color: #fffef9;
+  background: #b8962e;
   border-radius: 10px;
   text-decoration: none;
   transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .intro-detail-cta-link:hover {
-  background: #e8c547;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+  background: #c9a63a;
+  box-shadow: 0 0 20px rgba(184, 150, 46, 0.3);
 }

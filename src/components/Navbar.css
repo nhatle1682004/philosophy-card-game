@@ -2,10 +2,10 @@
 /* Layout cố định: logo ngang (icon trái + chữ phải), menu ngang (icon trái + chữ phải từng mục) */
 
 .navbar-header {
-  background-color: #0d0520;
-  color: #d4af37;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.08);
+  background-color: #5c4033; /* nâu đồng, khác nền chính */
+  color: #f7eedc;
+  border-bottom: 1px solid rgba(245, 217, 160, 0.35);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.3);
 }
 
 .navbar-header .navbar-inner {
@@ -28,23 +28,18 @@
   align-items: center !important;
   gap: 10px;
   text-decoration: none;
-  color: #f1d592;
+  color: #f7eedc;
   flex-shrink: 0;
 }
 
 .navbar-logo-icon {
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  border: 2px solid #d4af37;
-  color: #d4af37;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 2px solid #c9a227;
+  object-fit: cover;
   flex-shrink: 0;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1;
+  display: block;
 }
 
 .navbar-logo-text {
@@ -52,7 +47,7 @@
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #f1d592;
+  color: #fdf6ea;
   line-height: 1;
   white-space: nowrap;
 }
@@ -101,17 +96,17 @@
   text-transform: uppercase;
   padding: 10px 0;
   line-height: 1;
-  color: rgba(255, 255, 255, 0.65);
+  color: #f7eedc;
   transition: color 0.2s ease;
   position: relative;
 }
 
 .nav-link:hover {
-  color: #f1d592 !important;
+  color: #f5d9a0 !important;
 }
 
 .nav-link.is-active {
-  color: #d4af37 !important;
+  color: #f5d9a0 !important;
 }
 
 /* Wrapper icon cố định 20x20 để mọi icon cùng kích thước, căn giữa */
@@ -137,7 +132,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: #d4af37;
+  background: #b8962e;
   border-radius: 1px;
 }
 
@@ -147,8 +142,9 @@
   inset: 0;
   top: 64px;
   z-index: 50;
-  background: rgba(13, 5, 32, 0.98);
+  background: rgba(92, 64, 51, 0.98);
   backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(245, 217, 160, 0.3);
 }
 
 .navbar-mobile-overlay .navbar-mobile-inner {
@@ -172,14 +168,14 @@
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.9);
+  color: #f7eedc;
   transition: background 0.2s, color 0.2s;
   line-height: 1;
 }
 
 .navbar-mobile-link.is-active {
-  color: #d4af37;
-  background: rgba(212, 175, 55, 0.12);
+  color: #f5d9a0;
+  background: rgba(245, 217, 160, 0.12);
 }
 
 .navbar-mobile-link .nav-link-icon-wrap {

@@ -1,0 +1,399 @@
+/* ---- Page ---- */
+.explore-philosophers-page {
+  --ep-bg: #2a120c;
+  --ep-surface: rgba(59, 24, 16, 0.85);
+  --ep-gold: #f5d9a0;
+  --ep-gold-dim: rgba(245, 217, 160, 0.8);
+  --ep-ivory: #fdf6ea;
+  --ep-ivory-dim: rgba(247, 238, 220, 0.9);
+  --ep-border: rgba(245, 217, 160, 0.4);
+  min-height: 100%;
+  background: var(--ep-bg);
+  color: var(--ep-ivory);
+  padding: 2.5rem 2rem 5rem;
+}
+
+.explore-philosophers-container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ---- Header (list view) ---- */
+.explore-philosophers-header {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.explore-philosophers-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.25rem, 4.5vw, 2.75rem);
+  font-weight: 600;
+  color: var(--ep-gold);
+  margin: 0 0 0.625rem 0;
+  letter-spacing: 0.02em;
+}
+
+.explore-philosophers-subtitle {
+  font-size: 1.0625rem;
+  color: var(--ep-ivory-dim);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ---- List: grid of cards ---- */
+.explore-philosophers-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.explore-philosophers-item {
+  margin: 0;
+}
+
+.explore-philosophers-card--list {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  background: var(--ep-surface);
+  border: 1px solid var(--ep-border);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.explore-philosophers-card--list:hover {
+  border-color: var(--ep-gold-dim);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12), 0 0 20px rgba(184, 150, 46, 0.08);
+}
+
+.explore-philosophers-card-portrait-wrap {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--ep-gold-dim);
+  background: var(--ep-bg);
+}
+
+.explore-philosophers-card-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.12) brightness(0.9);
+  transition: filter 0.25s ease;
+}
+
+.explore-philosophers-card--list:hover .explore-philosophers-card-portrait {
+  filter: grayscale(0.9) contrast(1.08) brightness(0.92);
+}
+
+.explore-philosophers-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.explore-philosophers-card-name {
+  font-family: "Playfair Display", serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--ep-gold);
+  margin: 0 0 0.2rem 0;
+}
+
+.explore-philosophers-card-years {
+  font-size: 0.8125rem;
+  color: var(--ep-ivory-dim);
+  margin: 0 0 0.5rem 0;
+}
+
+.explore-philosophers-btn-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ep-bg);
+  background: linear-gradient(135deg, var(--ep-gold) 0%, #b8962e 100%);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.explore-philosophers-btn-explore:hover {
+  background: linear-gradient(135deg, #c9a63a 0%, var(--ep-gold) 100%);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.3);
+  transform: translateY(-1px);
+}
+
+/* ---- Journey view ---- */
+.explore-philosophers-journey {
+  padding-bottom: 2rem;
+}
+
+.explore-philosophers-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-bottom: 1.5rem;
+  padding: 0.4rem 0;
+  font-size: 0.875rem;
+  color: var(--ep-gold);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.explore-philosophers-back:hover {
+  color: #fdf6ea;
+}
+
+.explore-philosophers-journey-header {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--ep-border);
+}
+
+.explore-philosophers-journey-portrait-wrap {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--ep-gold-dim);
+  padding: 2px;
+  background: var(--ep-bg);
+}
+
+.explore-philosophers-journey-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.15) brightness(0.9);
+}
+
+.explore-philosophers-journey-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.explore-philosophers-journey-name {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-weight: 600;
+  color: var(--ep-gold);
+  margin: 0 0 0.25rem 0;
+}
+
+.explore-philosophers-journey-years {
+  font-size: 0.9375rem;
+  color: var(--ep-ivory-dim);
+  margin: 0 0 0.125rem 0;
+}
+
+.explore-philosophers-journey-school {
+  font-size: 0.875rem;
+  color: var(--ep-gold-dim);
+  margin: 0;
+  font-style: italic;
+}
+
+/* ---- Timeline (storytelling vertical) ---- */
+.explore-philosophers-timeline-wrap {
+  margin-bottom: 2.5rem;
+}
+
+.explore-philosophers-timeline-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ep-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 1.25rem 0;
+}
+
+.explore-philosophers-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  padding-left: 2rem;
+  border-left: 2px solid var(--ep-gold-dim);
+  margin-left: 0.5rem;
+}
+
+.explore-philosophers-step {
+  position: relative;
+  padding-bottom: 1.75rem;
+}
+
+.explore-philosophers-step:last-child {
+  padding-bottom: 0;
+}
+
+.explore-philosophers-step-icon {
+  position: absolute;
+  left: -2rem;
+  top: 0.1rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ep-surface);
+  border: 1px solid var(--ep-gold-dim);
+  border-radius: 50%;
+  color: var(--ep-gold);
+  transform: translateX(-50%);
+}
+
+.explore-philosophers-step-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+.explore-philosophers-step-body {
+  margin-left: 0.25rem;
+}
+
+.explore-philosophers-step-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ep-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.2rem;
+}
+
+.explore-philosophers-step-year {
+  display: inline-block;
+  font-size: 0.8125rem;
+  color: var(--ep-ivory-dim);
+  margin-bottom: 0.35rem;
+}
+
+.explore-philosophers-step-text {
+  font-size: 0.9375rem;
+  color: var(--ep-ivory);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ---- Philosophy Formed ---- */
+.explore-philosophers-formed {
+  padding: 1.5rem 0;
+  margin-bottom: 1.5rem;
+  border-top: 1px solid var(--ep-border);
+}
+
+.explore-philosophers-formed-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--ep-gold);
+  margin: 0 0 0.75rem 0;
+  letter-spacing: 0.02em;
+}
+
+.explore-philosophers-formed-concept {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ep-ivory);
+  margin: 0 0 0.5rem 0;
+}
+
+.explore-philosophers-formed-desc {
+  font-size: 0.9375rem;
+  color: var(--ep-ivory-dim);
+  line-height: 1.6;
+  margin: 0 0 0.75rem 0;
+}
+
+.explore-philosophers-formed-quote {
+  font-size: 0.9375rem;
+  font-style: italic;
+  color: var(--ep-gold-dim);
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--ep-gold-dim);
+}
+
+/* ---- CTA ---- */
+.explore-philosophers-actions {
+  padding-top: 0.5rem;
+}
+
+.explore-philosophers-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ep-bg);
+  background: linear-gradient(135deg, var(--ep-gold) 0%, #b8962e 100%);
+  border: 1px solid var(--ep-gold-dim);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.explore-philosophers-cta:hover {
+  background: linear-gradient(135deg, #c9a63a 0%, var(--ep-gold) 100%);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
+  transform: translateY(-1px);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 640px) {
+  .explore-philosophers-page {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .explore-philosophers-list {
+    grid-template-columns: 1fr;
+  }
+
+  .explore-philosophers-journey-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .explore-philosophers-journey-portrait-wrap {
+    width: 100px;
+    height: 100px;
+  }
+
+  .explore-philosophers-timeline {
+    padding-left: 1.75rem;
+    margin-left: 0.25rem;
+  }
+
+  .explore-philosophers-step-icon {
+    width: 2rem;
+    height: 2rem;
+    left: -1.75rem;
+    transform: translateX(-50%);
+  }
+
+  .explore-philosophers-step-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+}

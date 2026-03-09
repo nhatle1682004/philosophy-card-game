@@ -1,13 +1,20 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Sparkles, BookOpen, Quote, Layers } from 'lucide-react';
+import { Sparkles, BookOpen, Quote, Layers, Users, Hourglass, Infinity as InfinityIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 import { PHILOSOPHERS } from '../data';
 import '../components/Hero.css';
 import '../components/IntroSection.css';
 import '../components/HomeSections.css';
 
 const FEATURED_QUOTE_INDICES = [0, 1, 4, 10]; /* Socrates, Plato, Democritus, Marcus Aurelius */
+
+// Banner ảnh từ thư mục public/images/Socrates/banner
+const HERO_BANNERS = [
+  '/images/Socrates/banner/banner1.png',
+  '/images/Socrates/banner/banner2.png',
+  '/images/Socrates/banner/banner3.png',
+];
 
 export const Home: React.FC = () => {
   const periods = useMemo(
@@ -18,82 +25,133 @@ export const Home: React.FC = () => {
     () => FEATURED_QUOTE_INDICES.map((i) => PHILOSOPHERS[i]).filter(Boolean),
     []
   );
+
+  const heroSlides = HERO_BANNERS;
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    if (heroSlides.length <= 1) return;
+    const id = window.setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 6000);
+    return () => window.clearInterval(id);
+  }, [heroSlides.length]);
+
+  const goToSlide = (index: number) => {
+    setActiveSlide((index + heroSlides.length) % heroSlides.length);
+  };
+
   return (
     <div className="relative w-full overflow-x-hidden">
-      {/* Hero Section - thiết kế chuẩn: gradient tím–tím xanh, container 1200px, căn trái */}
-      <section className="hero-section">
-        <div className="hero-bg" aria-hidden />
-        <div className="hero-ambient" aria-hidden />
-
+      {/* Hero: banner full ngang, nội dung chèn chồng lên ảnh */}
+      <section className="hero-section" aria-label="Banner triết học">
+        {/* Lớp ảnh banner full width (từ public/images/Socrates/banner) */}
+        <div className="hero-banner-bg">
+          {heroSlides.map((src, index) => (
+            <div
+              key={src}
+              className={`hero-banner-slide ${index === activeSlide ? 'is-active' : ''}`}
+              aria-hidden={index !== activeSlide}
+            >
+              <img src={src} alt="" className="hero-banner-image" />
+            </div>
+          ))}
+        </div>
+        {/* Overlay tối để chữ đọc rõ */}
+        <div className="hero-banner-overlay" aria-hidden />
+        {/* Nội dung chồng lên ảnh */}
         <div className="hero-content">
-          {/* Badge: icon trái + "Thư viện vĩ đại đã mở cửa", viền vàng, bo góc tròn */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="hero-badge"
-          >
-            <Sparkles size={14} strokeWidth={2} />
-            <span>Thư viện vĩ đại đã mở cửa</span>
-          </motion.div>
-
-          {/* Tiêu đề 3 dòng rõ ràng: LÀM CHỦ (trắng) / NGHỆ THUẬT TƯ (vàng) / DUY (trắng) */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="hero-title"
-          >
-            <span className="hero-title-line white">Làm Chủ</span>
-            <span className="hero-title-line gold">Nghệ Thuật Tư</span>
-            <span className="hero-title-line white">Duy</span>
-          </motion.h1>
-
-          {/* Đoạn mô tả: nghiêng, xám sáng, rộng 500–600px */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="hero-desc"
-          >
-            &quot;Một cuộc đời không được xem xét thì không đáng sống.&quot; — Thu thập, nghiên cứu và làm chủ trí tuệ của các thời đại thông qua trò chơi thẻ bài triết học đỉnh cao.
-          </motion.p>
-
-          {/* Hai nút cùng hàng, cách nhau 16px */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="hero-buttons"
-          >
-            <Link to="/gallery" className="hero-btn-primary">
-              Khám phá bộ bài
-            </Link>
-            <Link to="/about" className="hero-btn-secondary">
-              Tìm hiểu thêm
-            </Link>
-          </motion.div>
-
-          {/* Hàng thống kê: cùng một hàng, khoảng cách đều */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="hero-stats"
-          >
-            <div className="hero-stat-item">
-              <span className="hero-stat-value">50+</span>
-              <span className="hero-stat-label">Triết gia</span>
-            </div>
-            <div className="hero-stat-item">
-              <span className="hero-stat-value">5</span>
-              <span className="hero-stat-label">Thời đại</span>
-            </div>
-            <div className="hero-stat-item">
-              <span className="hero-stat-value">∞</span>
-              <span className="hero-stat-label">Trí tuệ</span>
-            </div>
-          </motion.div>
+          <div className="hero-left">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="hero-badge"
+            >
+              <Sparkles size={14} strokeWidth={2} />
+              <span>Thư viện triết học mở</span>
+            </motion.div>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="hero-title"
+            >
+              <span className="hero-title-line white">Làm chủ</span>
+              <span className="hero-title-line gold">nghệ thuật tư duy</span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="hero-desc"
+            >
+              Học triết không chỉ để thuộc khái niệm, mà để rèn một cách nhìn thế giới — mạch lạc, sâu sắc và nhân văn hơn mỗi ngày.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="hero-buttons"
+            >
+              <Link to="/gallery" className="hero-btn-primary">
+                Khám phá bộ bài
+              </Link>
+              <Link to="/about" className="hero-btn-secondary">
+                Tìm hiểu thêm
+              </Link>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="hero-stats"
+            >
+              <div className="hero-stat-item">
+                <span className="hero-stat-value">50+</span>
+                <span className="hero-stat-label">Triết gia</span>
+              </div>
+              <div className="hero-stat-item">
+                <span className="hero-stat-value">5</span>
+                <span className="hero-stat-label">Thời đại</span>
+              </div>
+              <div className="hero-stat-item">
+                <span className="hero-stat-value">∞</span>
+                <span className="hero-stat-label">Trí tuệ</span>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+        {/* Điều khiển slider trên banner */}
+        <div className="hero-slider-nav">
+          <div className="hero-slider-arrows">
+            <button
+              type="button"
+              className="hero-slider-arrow"
+              onClick={() => goToSlide(activeSlide - 1)}
+              aria-label="Banner trước"
+            >
+              <ChevronLeft size={16} strokeWidth={2} />
+            </button>
+            <button
+              type="button"
+              className="hero-slider-arrow"
+              onClick={() => goToSlide(activeSlide + 1)}
+              aria-label="Banner tiếp theo"
+            >
+              <ChevronRight size={16} strokeWidth={2} />
+            </button>
+          </div>
+          <div className="hero-slider-dots" aria-hidden>
+            {heroSlides.map((src, index) => (
+              <button
+                key={src}
+                type="button"
+                className={`hero-slider-dot ${index === activeSlide ? 'is-active' : ''}`}
+                onClick={() => goToSlide(index)}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -102,34 +160,34 @@ export const Home: React.FC = () => {
         <div className="intro-inner">
           <h2 className="intro-title">Cách học mới</h2>
           <p className="intro-desc">
-            Triết học không nhất thiết phải là những cuốn sách bụi bặm. Tiếp cận những khái niệm cốt lõi của các bộ óc vĩ đại nhất lịch sử trong một định dạng trực quan, sinh động.
+            Một nền tảng học tập triết học hiện đại: trực quan, có cấu trúc, đủ chiều sâu để chiêm nghiệm lâu dài.
           </p>
           <div className="intro-cards">
             <Link to="/cach-hoc/kien-thuc-sau-sac" className="intro-card intro-card-link">
               <div className="intro-card-icon-wrap">
                 <BookOpen size={28} strokeWidth={1.8} />
               </div>
-              <h3 className="intro-card-title">Kiến Thức Sâu Sắc</h3>
+              <h3 className="intro-card-title">Học qua thẻ bài trực quan</h3>
               <p className="intro-card-desc">
-                Mỗi lá bài là một bản tóm tắt tinh túy: thời đại, trường phái và khái niệm cốt lõi của từng triết gia. Học qua hình ảnh và cấu trúc rõ ràng thay vì hàng trăm trang sách.
+                Mỗi lá bài là một bố cục rõ ràng: chân dung, niên đại, trường phái, khái niệm cốt lõi và danh ngôn tiêu biểu — giúp bạn nắm bắt tư tưởng trong vài phút thay vì hàng trăm trang sách.
               </p>
             </Link>
             <Link to="/cach-hoc/trich-dan-chuan-xac" className="intro-card intro-card-link">
               <div className="intro-card-icon-wrap">
                 <Quote size={28} strokeWidth={1.8} />
               </div>
-              <h3 className="intro-card-title">Trích Dẫn Chuẩn Xác</h3>
+              <h3 className="intro-card-title">Khám phá theo dòng thời gian</h3>
               <p className="intro-card-desc">
-                Mỗi thẻ mang một câu danh ngôn đã được ghi chép trong lịch sử triết học. Từ Socrates đến Sartre, bạn tiếp xúc trực tiếp với tư tưởng gốc — ngắn gọn, dễ nhớ, dễ chiêm nghiệm.
+                Từ Hy Lạp cổ đại đến hiện sinh thế kỷ 20, bạn theo dõi dòng chảy tư tưởng qua các thời đại, thấy rõ cách các triết gia đối thoại, phản biện và kế thừa lẫn nhau.
               </p>
             </Link>
             <Link to="/cach-hoc/xay-dung-bo-bai" className="intro-card intro-card-link">
               <div className="intro-card-icon-wrap">
                 <Layers size={28} strokeWidth={1.8} />
               </div>
-              <h3 className="intro-card-title">Xây Dựng Bộ Bài</h3>
+              <h3 className="intro-card-title">Kết nối các trường phái tư tưởng</h3>
               <p className="intro-card-desc">
-                Chọn mười nhà tư tưởng làm &quot;bộ bài&quot; của riêng bạn. Kết hợp Đông–Tây, cổ đại–hiện đại để tạo nên bộ sưu tập triết học phản chiếu thế giới quan và mục tiêu học tập của bạn.
+                Xây dựng bộ bài cá nhân kết hợp Đông–Tây, cổ đại–hiện đại. Đặt các trường phái bên cạnh nhau để nhìn thấy những căng thẳng, hòa giải và chiều sâu của một thế giới quan nhất quán.
               </p>
             </Link>
           </div>
@@ -141,7 +199,7 @@ export const Home: React.FC = () => {
         <div className="home-eras__inner">
           <p className="home-eras__label">Bộ sưu tập</p>
           <h2 id="home-eras-title" className="home-eras__title">
-            Khám phá theo thời đại
+            KHÁM PHÁ THEO THỜI ĐẠI
           </h2>
           <div className="home-eras__grid">
             {periods.map((period) => (
@@ -162,7 +220,7 @@ export const Home: React.FC = () => {
         <div className="home-quotes__inner">
           <p className="home-quotes__label">Danh ngôn</p>
           <h2 id="home-quotes-title" className="home-quotes__title">
-            Trích dẫn nổi bật
+            TRÍCH DẪN NỔI BẬT
           </h2>
           <div className="home-quotes__grid">
             {featuredPhilosophers.map((p) => (

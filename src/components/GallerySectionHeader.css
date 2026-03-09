@@ -4,7 +4,7 @@
 .gallery-header {
   position: relative;
   padding: 48px 24px 40px;
-  background: linear-gradient(180deg, #120a1a 0%, #0d0614 35%, #080410 100%);
+  background: linear-gradient(180deg, #3b1810 0%, #2a120c 100%);
   overflow: hidden;
 }
 
@@ -13,8 +13,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(88, 52, 130, 0.18) 0%, transparent 50%),
-    radial-gradient(ellipse 70% 40% at 50% 100%, rgba(45, 25, 70, 0.12) 0%, transparent 55%);
+    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(245, 217, 160, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 70% 40% at 50% 100%, rgba(245, 217, 160, 0.06) 0%, transparent 55%);
   pointer-events: none;
 }
 
@@ -26,7 +26,7 @@
   text-align: center;
 }
 
-/* Tiêu đề: PHÒNG TRƯNG BÀY VĨ ĐẠI */
+/* Tiêu đề: PHÒNG TRƯNG BÀY VĨ ĐẠI - màu vàng */
 .gallery-header__title {
   font-family: "Playfair Display", serif;
   font-size: clamp(1.75rem, 5vw, 3.25rem);
@@ -35,25 +35,22 @@
   letter-spacing: 0.22em;
   line-height: 1.15;
   margin: 0;
-  background: linear-gradient(180deg, #f8ecd4 0%, #d4af37 40%, #b8962e 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 0 28px rgba(212, 175, 55, 0.18));
+  color: #c9a227; /* vàng đậm cho tiêu đề lớn */
+  filter: drop-shadow(0 0 20px rgba(245, 217, 160, 0.35));
 }
 
-/* Mô tả — rộng hơn, khoảng cách gọn */
+/* Mô tả — rộng hơn, chữ sáng trên nền nâu */
 .gallery-header__desc {
   max-width: 680px;
   margin: 24px auto 0;
   font-family: "Inter", sans-serif;
   font-size: 0.9375rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.78);
+  color: #f7eedc;
   line-height: 1.65;
 }
 
-/* Hàng số liệu — lấp khoảng trống, gắn nội dung */
+/* Hàng số liệu */
 .gallery-header__stats {
   display: flex;
   flex-wrap: wrap;
@@ -61,7 +58,7 @@
   gap: 1.5rem 2.5rem;
   margin-top: 28px;
   padding-top: 24px;
-  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  border-top: 1px solid rgba(245, 217, 160, 0.35);
 }
 
 .gallery-header__stat {
@@ -74,12 +71,12 @@
   font-family: "Playfair Display", serif;
   font-size: 1.125rem;
   font-weight: 700;
-  color: #d4af37;
+  color: #f5d9a0;
 }
 
 .gallery-header__stat-label {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: #f7eedc;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }

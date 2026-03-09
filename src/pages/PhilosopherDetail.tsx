@@ -2,7 +2,8 @@ import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { PHILOSOPHERS } from '../data';
 import { PhilosopherCard } from '../components/PhilosopherCard';
-import { ArrowLeft, Book, History, Globe } from 'lucide-react';
+import { getHeritageForPhilosopher } from '../philosopherHeritage';
+import { ArrowLeft, Book, History, Globe, Compass, Landmark } from 'lucide-react';
 import { motion } from 'motion/react';
 import '../components/PhilosopherDetail.css';
 
@@ -38,17 +39,19 @@ export const PhilosopherDetail: React.FC = () => {
         </button>
 
         <div className="philosopher-detail-main">
-          {/* Cột trái: thẻ bài + khối Thời đại / Khu vực / Trường phái */}
+          {/* Left column: philosopher card (420–480px), centered vertically, with glow */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
             className="philosopher-detail-card-col"
           >
-            <PhilosopherCard philosopher={philosopher} isLarge onClick={() => {}} />
+            <div className="philosopher-detail-card-wrap">
+              <PhilosopherCard philosopher={philosopher} isLarge onClick={() => {}} />
+            </div>
           </motion.div>
 
-          {/* Cột phải: thông tin chi tiết */}
+          {/* Right column: name, era, info cards, quote, biography */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -91,6 +94,20 @@ export const PhilosopherDetail: React.FC = () => {
               </h2>
               <p className="philosopher-detail-bio-text">{bioText}</p>
             </section>
+
+            <div className="philosopher-detail-explore-wrap">
+              <Link to={`/kham-pha-triet-gia/${philosopher.id}`} className="philosopher-detail-explore-btn">
+                <Compass size={18} strokeWidth={2} aria-hidden />
+                Khám phá triết gia
+              </Link>
+              <Link
+                to={`/card/${philosopher.id}/di-san`}
+                className="philosopher-detail-explore-btn philosopher-detail-explore-btn--secondary"
+              >
+                <Landmark size={18} strokeWidth={2} aria-hidden />
+                Khám phá di sản
+              </Link>
+            </div>
           </motion.div>
         </div>
       </div>

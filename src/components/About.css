@@ -3,7 +3,7 @@
 
 .about-page {
   min-height: 100vh;
-  background: linear-gradient(180deg, #0f0818 0%, #0d0614 20%, #0a0510 70%, #080410 100%);
+  background: #2a120c;
   position: relative;
 }
 
@@ -11,8 +11,8 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 70% 40% at 50% 0%, rgba(88, 52, 130, 0.12) 0%, transparent 50%),
-              radial-gradient(ellipse 50% 30% at 80% 80%, rgba(45, 25, 70, 0.08) 0%, transparent 50%);
+  background: radial-gradient(ellipse 70% 40% at 50% 0%, rgba(245, 217, 160, 0.08) 0%, transparent 50%),
+              radial-gradient(ellipse 50% 30% at 80% 80%, rgba(245, 217, 160, 0.05) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -22,6 +22,7 @@
 }
 
 /* ----- Section header: TRUYỀN THUYẾT ----- */
+/* Tiêu đề dùng chữ đặc, màu đặc — tránh gradient clip gây mất dấu tiếng Việt */
 .about-header {
   position: relative;
   padding: 72px 24px 56px;
@@ -30,26 +31,23 @@
 }
 
 .about-header__title {
-  font-family: "Playfair Display", serif;
+  font-family: "Inter", sans-serif;
   font-size: clamp(1.5rem, 4vw, 2.75rem);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.24em;
-  line-height: 1.2;
+  letter-spacing: 0.2em;
+  line-height: 1.25;
   margin: 0;
-  background: linear-gradient(180deg, #f8ecd4 0%, #d4af37 45%, #b8962e 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.15));
+  color: #c9a227; /* vàng đậm cho tiêu đề Truyền thuyết */
+  text-rendering: optimizeLegibility;
 }
 
 .about-header__desc {
   max-width: 560px;
   margin: 28px auto 0;
-  font-size: 0.9375rem;
-  color: rgba(255, 255, 255, 0.72);
-  line-height: 1.65;
+  font-size: 1rem;
+  color: #f7eedc;
+  line-height: 1.7;
 }
 
 @media (min-width: 768px) {
@@ -83,36 +81,40 @@
 }
 
 .about-section__label {
-  font-size: 0.625rem;
+  font-family: "Inter", sans-serif;
+  font-size: 0.6875rem;
   font-weight: 600;
-  color: #d4af37;
+  color: #f5d9a0;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.12em;
   margin-bottom: 0.75rem;
 }
 
 .about-section__title {
-  font-family: "Playfair Display", serif;
+  font-family: "Inter", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #e8d48b;
+  color: #c9a227;
   margin: 0 0 1.25rem;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
 }
 
 .about-story-card {
   padding: 1.75rem 1.5rem;
-  background: rgba(26, 15, 42, 0.5);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: rgba(59, 24, 16, 0.6);
+  border: 1px solid rgba(245, 217, 160, 0.35);
   border-radius: 12px;
   margin-bottom: 0;
 }
 
 .about-story-card p {
-  font-size: 0.9375rem;
-  color: rgba(255, 255, 255, 0.82);
-  line-height: 1.7;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #f7eedc;
+  line-height: 1.75;
   margin: 0 0 1rem;
+  text-rendering: optimizeLegibility;
 }
 
 .about-story-card p:last-child {
@@ -122,8 +124,8 @@
 /* Cột phải: Số liệu + Hành trình */
 .about-side-card {
   padding: 1.5rem 1.25rem;
-  background: rgba(26, 15, 42, 0.5);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: rgba(59, 24, 16, 0.6);
+  border: 1px solid rgba(245, 217, 160, 0.35);
   border-radius: 12px;
   position: sticky;
   top: 6rem;
@@ -139,33 +141,36 @@
 .about-stat {
   text-align: center;
   padding: 0.75rem 0.5rem;
-  background: rgba(12, 8, 20, 0.5);
+  background: rgba(42, 18, 12, 0.8);
   border-radius: 8px;
-  border: 1px solid rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(245, 217, 160, 0.3);
 }
 
 .about-stat__value {
   display: block;
-  font-family: "Playfair Display", serif;
+  font-family: "Inter", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
-  color: #d4af37;
+  color: #f5d9a0;
   margin-bottom: 0.25rem;
 }
 
 .about-stat__label {
-  font-size: 0.625rem;
-  color: rgba(255, 255, 255, 0.55);
+  font-family: "Inter", sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: #f7eedc;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 }
 
 .about-side-card__title {
-  font-size: 0.625rem;
+  font-family: "Inter", sans-serif;
+  font-size: 0.6875rem;
   font-weight: 600;
-  color: #d4af37;
+  color: #f5d9a0;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.12em;
   margin-bottom: 0.75rem;
 }
 
@@ -176,14 +181,17 @@
 }
 
 .about-journey-list li {
-  font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.78);
+  font-family: "Inter", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: #f7eedc;
   padding: 0.5rem 0 0.5rem 1.25rem;
   position: relative;
-  line-height: 1.45;
-  border-left: 2px solid rgba(212, 175, 55, 0.3);
+  line-height: 1.55;
+  border-left: 2px solid rgba(245, 217, 160, 0.4);
   margin-left: 0;
   margin-bottom: 0.25rem;
+  text-rendering: optimizeLegibility;
 }
 
 .about-journey-list li::before {
@@ -194,7 +202,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #d4af37;
+  background: #f5d9a0;
 }
 
 /* ----- Khung trích dẫn (full width content) ----- */
@@ -207,8 +215,8 @@
 .about-quote {
   margin: 0;
   padding: 2rem 2rem 2rem 2.5rem;
-  background: linear-gradient(145deg, #120a1a 0%, #0d0612 100%);
-  border: 1px solid rgba(212, 175, 55, 0.25);
+  background: rgba(59, 24, 16, 0.7);
+  border: 1px solid rgba(245, 217, 160, 0.35);
   border-radius: 12px;
   position: relative;
 }
@@ -220,19 +228,20 @@
   font-family: "Playfair Display", serif;
   font-size: 3rem;
   font-weight: 700;
-  color: rgba(212, 175, 55, 0.2);
+  color: rgba(245, 217, 160, 0.3);
   line-height: 1;
 }
 
 .about-quote__text {
   position: relative;
   z-index: 1;
-  font-family: "Playfair Display", serif;
-  font-size: 1.125rem;
+  font-family: "Inter", sans-serif;
+  font-size: 1.375rem;
   font-style: italic;
-  color: rgba(255, 255, 255, 0.9);
+  color: #f7eedc;
   line-height: 1.6;
   margin: 0;
+  text-rendering: optimizeLegibility;
 }
 
 /* ----- Hàng danh ngôn (full width) ----- */
@@ -243,11 +252,12 @@
 }
 
 .about-quotes-row__title {
-  font-size: 0.625rem;
+  font-family: "Inter", sans-serif;
+  font-size: 0.6875rem;
   font-weight: 600;
-  color: #d4af37;
+  color: #f5d9a0;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.14em;
   margin-bottom: 1rem;
 }
 
@@ -270,38 +280,41 @@
 }
 
 .about-quote-mini {
-  padding: 1.25rem 1.25rem 1.25rem 1.5rem;
-  background: rgba(26, 15, 42, 0.5);
-  border: 1px solid rgba(212, 175, 55, 0.18);
+  padding: 1.35rem 1.35rem 1.35rem 1.6rem;
+  background: rgba(59, 24, 16, 0.6);
+  border: 1px solid rgba(245, 217, 160, 0.35);
   border-radius: 10px;
   position: relative;
 }
 
 .about-quote-mini__text {
-  font-family: "Playfair Display", serif;
-  font-size: 0.875rem;
+  font-family: "Inter", sans-serif;
+  font-size: 1.125rem;
   font-style: italic;
-  color: rgba(255, 255, 255, 0.88);
-  line-height: 1.55;
+  color: #f7eedc;
+  line-height: 1.6;
   margin: 0 0 0.5rem;
+  text-rendering: optimizeLegibility;
 }
 
 .about-quote-mini__author {
-  font-size: 0.6875rem;
-  color: rgba(212, 175, 55, 0.9);
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #f5d9a0;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
 }
 
 /* ----- Trụ cột cốt lõi ----- */
 .about-pillars-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Inter", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
-  color: #d4af37;
+  color: #c9a227;
   text-align: center;
   margin: 0 0 2rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
 }
 
 .about-pillars {
@@ -322,45 +335,48 @@
 
 .about-pillar {
   padding: 1.5rem 1.25rem;
-  background: rgba(26, 15, 42, 0.5);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: rgba(59, 24, 16, 0.6);
+  border: 1px solid rgba(245, 217, 160, 0.35);
   border-radius: 12px;
   text-align: center;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .about-pillar:hover {
-  border-color: rgba(212, 175, 55, 0.4);
-  box-shadow: 0 0 24px rgba(212, 175, 55, 0.08);
+  border-color: rgba(245, 217, 160, 0.5);
+  box-shadow: 0 0 24px rgba(245, 217, 160, 0.12);
 }
 
 .about-pillar__icon {
   width: 2.25rem;
   height: 2.25rem;
   margin: 0 auto 0.75rem;
-  color: #d4af37;
+  color: #f5d9a0;
 }
 
 .about-pillar__title {
-  font-family: "Playfair Display", serif;
-  font-size: 0.9375rem;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
   font-weight: 600;
-  color: #e8d48b;
+  color: #c9a227;
   margin: 0 0 0.5rem;
 }
 
 .about-pillar__desc {
-  font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.65);
-  line-height: 1.55;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: #f7eedc;
+  line-height: 1.6;
   margin: 0;
+  text-rendering: optimizeLegibility;
 }
 
 /* ----- CTA + chân trang ----- */
 .about-cta {
   text-align: center;
   padding: 2rem 24px 3rem;
-  border-top: 1px solid rgba(212, 175, 55, 0.12);
+  border-top: 1px solid rgba(245, 217, 160, 0.3);
 }
 
 .about-cta__link {
@@ -370,23 +386,24 @@
   padding: 0.75rem 1.5rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: #0d0520;
-  background: #d4af37;
-  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: #fffef9;
+  background: #b8962e;
+  border: 1px solid rgba(184, 150, 46, 0.5);
   border-radius: 10px;
   text-decoration: none;
   transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .about-cta__link:hover {
-  background: #e8c547;
-  color: #0d0520;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+  background: #c9a63a;
+  color: #fffef9;
+  box-shadow: 0 0 20px rgba(184, 150, 46, 0.3);
 }
 
 .about-footer-note {
-  font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.45);
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  color: rgba(247, 238, 220, 0.8);
   margin-top: 1.5rem;
   font-style: italic;
 }

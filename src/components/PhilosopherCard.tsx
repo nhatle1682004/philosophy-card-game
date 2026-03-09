@@ -36,6 +36,18 @@ export const PhilosopherCard: React.FC<PhilosopherCardProps> = ({
       )}
     >
       <div className="philosopher-card__inner">
+        <span
+          className="philosopher-card__corner-icon philosopher-card__corner-icon--tl"
+          aria-hidden="true"
+        >
+          ✦
+        </span>
+        <span
+          className="philosopher-card__corner-icon philosopher-card__corner-icon--tr"
+          aria-hidden="true"
+        >
+          ✦
+        </span>
         {/* 1. Tên triết gia - căn giữa */}
         <h3 className="philosopher-card__name">{philosopher.name}</h3>
 

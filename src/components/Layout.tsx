@@ -53,6 +53,9 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             <a href="#privacy">Quyền riêng tư tư tưởng</a>
             <a href="#contact">Liên hệ học viện</a>
           </nav>
+          <p className="footer-ai-note">
+            Phụ lục AI: Trang web này được thiết kế và tinh chỉnh với sự hỗ trợ của trợ lý lập trình AI (GPT) thông qua môi trường Cursor.
+          </p>
         </div>
       </footer>
     </div>

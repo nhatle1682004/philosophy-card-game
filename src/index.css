@@ -5,13 +5,13 @@
   --font-serif: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
 
-  /* Màu theo yêu cầu */
-  --color-bg: #0d0520;
-  --color-card: #1b0f2f;
-  --color-gold: #d4af37;
-  --color-gold-light: #f1d592;
-  --color-text: #ffffff;
-  --color-text-muted: rgba(255, 255, 255, 0.7);
+  /* Nền web nâu triết học, accent vàng, chữ tối */
+  --color-bg: #2a120c;
+  --color-card: #fffef9;
+  --color-gold: #b8962e;
+  --color-gold-light: #d4af37;
+  --color-text: #1f1b28;
+  --color-text-muted: #2d2838;
 }
 
 @layer base {
@@ -26,16 +26,20 @@
 
   body {
     font-family: "Inter", sans-serif;
-    background-color: #0d0520;
-    color: #ffffff;
+    background-color: #2a120c;
+    color: #1f1b28;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     overflow-x: hidden;
   }
 
   h1, h2, h3, h4 {
     font-family: "Playfair Display", serif;
     letter-spacing: 0.02em;
+    color: #1f1b28;
+    font-weight: 600;
   }
 
   select {
@@ -43,8 +47,8 @@
   }
 
   select option {
-    background-color: #1b0f2f;
-    color: #ffffff;
+    background-color: #fffef9;
+    color: #1f1b28;
   }
 }
 
@@ -93,10 +97,17 @@
   }
 }
 
-/* Section spacing */
+/* Section spacing — generous for readability and balance */
 .section-spacing {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+  }
 }
 
 /* Gallery: header đã gọn nên giảm khoảng cách xuống thanh search */
@@ -125,33 +136,33 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(ellipse 70% 50% at 50% 30%, rgba(212, 175, 55, 0.04) 0%, transparent 50%),
-              radial-gradient(ellipse 50% 40% at 80% 70%, rgba(45, 27, 78, 0.3) 0%, transparent 50%);
+  background: radial-gradient(ellipse 70% 50% at 50% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+              radial-gradient(ellipse 50% 40% at 80% 70%, rgba(184, 150, 46, 0.06) 0%, transparent 50%);
 }
 
 /* Header (chi tiết trong Navbar.css) */
 header.navbar-header {
-  background-color: #0d0520;
+  background-color: #5c4033;
 }
 
-/* Hero: chữ trắng/vàng luôn đọc được */
+/* Hero: chữ tối trên nền sáng, tương phản cao */
 .hero .container {
-  color: #ffffff;
+  color: #1c1829;
 }
 
 .hero h1 {
-  color: #ffffff;
+  color: #1c1829;
 }
 
 .hero a[href] {
-  color: #0d0520;
-  background-color: #d4af37;
+  color: #fffef9;
+  background-color: #b8962e;
 }
 
 .hero a[href*="about"] {
-  color: #d4af37;
+  color: #b8962e;
   background-color: transparent;
-  border: 2px solid rgba(212, 175, 55, 0.6);
+  border: 2px solid rgba(184, 150, 46, 0.7);
 }
 
 /* Menu desktop/mobile điều khiển bởi Navbar.css */
