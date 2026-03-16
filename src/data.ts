@@ -249,7 +249,7 @@ export const PHILOSOPHERS: Type.Philosopher[] = [
     description: "Ông cho rằng Chúa và Thiên nhiên là một, và tự do nằm ở việc hiểu biết sự tất yếu của vũ trụ.",
     region: "Phương Tây",
     rarity: "Sử thi",
-    image: "https://i.pinimg.com/736x/45/83/06/4583065633a4125df2ee303d0ced5236.jpg"
+    image: "https://i.pinimg.com/1200x/47/e6/95/47e6957a496fdfe6263f647c8e408c59.jpg"
   },
   {
     id: "locke",
